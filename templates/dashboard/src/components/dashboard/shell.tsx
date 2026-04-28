@@ -31,7 +31,7 @@ export function DashboardShell({ user, children }: DashboardShellProps) {
     <div className="dashboard-layout">
       <aside className="sidebar">
         <div className="sidebar-logo">
-          launch<span>frame</span>
+          Skit
         </div>
 
         <div className="sidebar-section">Navigation</div>

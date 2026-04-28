@@ -14,7 +14,7 @@ export default async function SignInPage() {
     <main className="auth-screen">
       <div className="auth-brand">
         <div className="logo">
-          launch<span>frame</span>
+          Skit
         </div>
         <blockquote>
           Stop rebuilding auth, billing, and email for every new project.

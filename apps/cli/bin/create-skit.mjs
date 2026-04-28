@@ -1052,7 +1052,8 @@ async function replaceTokensRecursively(currentDir, replacements) {
 async function pruneGeneratedFiles(destinationDir, relativePaths) {
   for (const relativePath of relativePaths) {
     await rm(path.join(destinationDir, relativePath), {
-      force: true
+      force: true,
+      recursive: true
     });
   }
 }

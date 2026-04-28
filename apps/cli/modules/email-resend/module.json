@@ -10,6 +10,9 @@
     "packageDependencies": [
       "    \"resend\": \"6.12.2\","
     ],
+    "tokenReplacements": {
+      "__RESEND_ENV_VARS__": "RESEND_API_KEY=re_xxx\nEMAIL_FROM=Panda Starter <onboarding@example.com>"
+    },
     "email": {
       "imports": [
         "import { Resend } from \"resend\";"

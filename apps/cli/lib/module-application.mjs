@@ -264,18 +264,36 @@ export async function buildModuleFileOverlays(repoRoot, scaffoldPlan) {
 }
 
 export function buildModulePruneList(scaffoldPlan) {
-  const filesToRemove = [];
+  const pathsToRemove = [];
   const moduleSet = new Set(scaffoldPlan.modules);
+  const hasStripe = moduleSet.has("billing-stripe");
+  const hasPolar = moduleSet.has("billing-polar");
+  const hasBilling = hasStripe || hasPolar;
+  const hasEmail = moduleSet.has("email-resend");
 
-  if (!moduleSet.has("billing-stripe")) {
-    filesToRemove.push("src/lib/billing/providers/stripe.ts");
-    filesToRemove.push("src/app/api/webhooks/stripe/route.ts");
+  if (!hasBilling) {
+    pathsToRemove.push("src/lib/billing");
+    pathsToRemove.push("src/app/api/billing");
+    pathsToRemove.push("src/app/api/webhooks/stripe");
+    pathsToRemove.push("src/app/api/webhooks/polar");
+    pathsToRemove.push("src/app/billing");
+  } else {
+    if (!hasStripe) {
+      pathsToRemove.push("src/lib/billing/providers/stripe.ts");
+      pathsToRemove.push("src/app/api/webhooks/stripe/route.ts");
+    }
+
+    if (!hasPolar) {
+      pathsToRemove.push("src/lib/billing/providers/polar.ts");
+      pathsToRemove.push("src/app/api/webhooks/polar/route.ts");
+    }
   }
 
-  if (!moduleSet.has("billing-polar")) {
-    filesToRemove.push("src/lib/billing/providers/polar.ts");
-    filesToRemove.push("src/app/api/webhooks/polar/route.ts");
+  if (!hasEmail) {
+    pathsToRemove.push("src/lib/email");
+    pathsToRemove.push("src/app/api/email");
+    pathsToRemove.push("src/app/email");
   }
 
-  return filesToRemove;
+  return pathsToRemove;
 }

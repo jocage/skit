@@ -673,12 +673,38 @@ describe("buildModulePruneList — billing file pruning", () => {
     expect(pruned).not.toContain("src/lib/billing/providers/polar.ts");
   });
 
-  it("no billing — prunes both stripe and polar files", () => {
+  it("no billing — prunes entire billing structure", () => {
     const p = { modules: ["quality-baseline", "auth-core"] };
     const pruned = buildModulePruneList(p);
-    expect(pruned).toContain("src/lib/billing/providers/stripe.ts");
-    expect(pruned).toContain("src/lib/billing/providers/polar.ts");
-    expect(pruned).toContain("src/app/api/webhooks/stripe/route.ts");
-    expect(pruned).toContain("src/app/api/webhooks/polar/route.ts");
+    expect(pruned).toContain("src/lib/billing");
+    expect(pruned).toContain("src/app/api/billing");
+    expect(pruned).toContain("src/app/api/webhooks/stripe");
+    expect(pruned).toContain("src/app/api/webhooks/polar");
+    expect(pruned).toContain("src/app/billing");
+  });
+
+  it("no billing — does not prune individual provider files (whole dirs pruned instead)", () => {
+    const p = { modules: ["quality-baseline", "auth-core"] };
+    const pruned = buildModulePruneList(p);
+    expect(pruned).not.toContain("src/lib/billing/providers/stripe.ts");
+    expect(pruned).not.toContain("src/lib/billing/providers/polar.ts");
+  });
+});
+
+describe("buildModulePruneList — email file pruning", () => {
+  it("no email — prunes entire email structure", () => {
+    const p = { modules: ["quality-baseline", "auth-core"] };
+    const pruned = buildModulePruneList(p);
+    expect(pruned).toContain("src/lib/email");
+    expect(pruned).toContain("src/app/api/email");
+    expect(pruned).toContain("src/app/email");
+  });
+
+  it("resend email — does not prune email structure", () => {
+    const p = { modules: ["quality-baseline", "auth-core", "email-resend"] };
+    const pruned = buildModulePruneList(p);
+    expect(pruned).not.toContain("src/lib/email");
+    expect(pruned).not.toContain("src/app/api/email");
+    expect(pruned).not.toContain("src/app/email");
   });
 });

@@ -4,6 +4,9 @@
   "template": "blank",
   "tokenReplacements": {
     "__TEMPLATE_NAME__": "blank",
+    "__STRIPE_ENV_VARS__": "",
+    "__POLAR_ENV_VARS__": "",
+    "__RESEND_ENV_VARS__": "",
     "__AUTH_PROVIDER_ENV_EXAMPLE__": "",
     "__AUTH_PROVIDER_ENV_SCHEMA__": "",
     "__AUTH_PROVIDER_ENV_VALUES__": "",

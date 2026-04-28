@@ -14,7 +14,7 @@ export default async function SignUpPage() {
     <main className="auth-screen">
       <div className="auth-brand">
         <div className="logo">
-          launch<span>frame</span>
+          Skit
         </div>
         <blockquote>
           From zero to production SaaS in minutes, not months.

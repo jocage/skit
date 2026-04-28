@@ -46,12 +46,7 @@ export function Logo({ size = 'default' }: { size?: 'default' | 'sm' }) {
           </linearGradient>
         </defs>
       </svg>
-      <span className={textClass}>
-        Launch
-        <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-          frame
-        </span>
-      </span>
+      <span className={textClass}>Skit</span>
     </span>
   );
 }

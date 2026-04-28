@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="landing">
       <nav className="landing-nav">
         <div className="logo">
-          launch<span>frame</span>
+          Skit
         </div>
         <div className="landing-nav-links">
           <Link href="/sign-in">Sign in</Link>

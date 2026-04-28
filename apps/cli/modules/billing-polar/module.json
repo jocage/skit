@@ -7,6 +7,9 @@
   "replaces": [],
   "template": {
     "billingProviders": ["polar"],
+    "tokenReplacements": {
+      "__POLAR_ENV_VARS__": "POLAR_ACCESS_TOKEN=polar_pat_xxx\nPOLAR_ORGANIZATION_ID=org_xxx\nPOLAR_PRODUCT_ID=prod_xxx\nPOLAR_SERVER=sandbox\nPOLAR_WEBHOOK_SECRET=polar_whsec_xxx"
+    },
     "billing": {
       "imports": [
         "import { PolarBillingProvider } from \"./providers/polar\";"

@@ -10,6 +10,9 @@
     "packageDependencies": [
       "    \"stripe\": \"22.1.0\","
     ],
+    "tokenReplacements": {
+      "__STRIPE_ENV_VARS__": "STRIPE_SECRET_KEY=sk_test_xxx\nSTRIPE_PRICE_ID=price_xxx\nSTRIPE_WEBHOOK_SECRET=whsec_xxx"
+    },
     "billing": {
       "imports": [
         "import { StripeBillingProvider } from \"./providers/stripe\";"
