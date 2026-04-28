@@ -26,15 +26,8 @@ export function EmailAuthForm({ mode }: EmailAuthFormProps) {
 
     try {
       const result = isSignUp
-        ? await authClient.signUp.email({
-            email,
-            password,
-            name
-          })
-        : await authClient.signIn.email({
-            email,
-            password
-          });
+        ? await authClient.signUp.email({ email, password, name })
+        : await authClient.signIn.email({ email, password });
 
       if (result.error) {
         setError(result.error.message ?? "Authentication failed.");
@@ -52,9 +45,7 @@ export function EmailAuthForm({ mode }: EmailAuthFormProps) {
 
   return (
     <form
-      action={(formData) => {
-        void handleSubmit(formData);
-      }}
+      action={(formData) => { void handleSubmit(formData); }}
       className="auth-card"
     >
       <div className="auth-copy">
