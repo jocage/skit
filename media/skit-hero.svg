@@ -1,0 +1,128 @@
+<svg width="1600" height="920" viewBox="0 0 1600 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="920" fill="#050505"/>
+  <circle cx="1350" cy="200" r="400" fill="url(#orb1)" opacity="0.3"/>
+  <circle cx="150" cy="750" r="300" fill="url(#orb2)" opacity="0.2"/>
+
+  <!-- Nav -->
+  <g>
+    <!-- Logo icon -->
+    <rect x="68" y="18" width="24" height="24" rx="5" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+    <path d="M77 26l3 3-3 3" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="82" y1="34" x2="86" y2="34" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round"/>
+    <!-- Logo text -->
+    <text x="100" y="36" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="-0.3">Launch</text>
+    <text x="168" y="36" font-family="system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="-0.3" fill="url(#logoGrad)">frame</text>
+    <!-- Nav links -->
+    <text x="1430" y="36" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">Docs</text>
+    <text x="1500" y="36" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">GitHub</text>
+  </g>
+
+  <!-- Hero: left column -->
+  <!-- Badge -->
+  <rect x="68" y="160" width="232" height="28" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="84" y="179" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">v0.2.0 — Next.js 16 + React 19</text>
+
+  <!-- Heading -->
+  <text x="68" y="260" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">Ship your SaaS</text>
+  <text x="68" y="330" font-family="system-ui, sans-serif" font-size="56" font-weight="800" letter-spacing="-2" fill="url(#heroGrad)">in minutes</text>
+
+  <!-- Subtext -->
+  <text x="68" y="384" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="18">Opinionated Next.js 16 starter with auth, billing, email,</text>
+  <text x="68" y="410" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="18">database, and AI-first DX. One command to scaffold.</text>
+
+  <!-- CTA buttons -->
+  <rect x="68" y="448" width="148" height="44" rx="8" fill="#FFFFFF"/>
+  <text x="100" y="476" fill="#050505" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Get Started →</text>
+  <rect x="228" y="448" width="168" height="44" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="258" y="476" fill="#d4d4d8" font-family="system-ui, sans-serif" font-size="14" font-weight="500">View on GitHub</text>
+
+  <!-- Hero: right column — Terminal -->
+  <rect x="840" y="130" width="680" height="400" rx="14" fill="#0a0a0a" stroke="rgba(255,255,255,0.08)"/>
+  <!-- Terminal dots -->
+  <circle cx="868" cy="156" r="6" fill="#ff5f56"/>
+  <circle cx="888" cy="156" r="6" fill="#ffbd2e"/>
+  <circle cx="908" cy="156" r="6" fill="#27c93f"/>
+  <text x="935" y="161" fill="#71717a" font-family="ui-monospace, monospace" font-size="13">terminal</text>
+  <rect x="840" y="174" width="680" height="1" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Terminal content -->
+  <text x="868" y="204" fill="#34d399" font-family="ui-monospace, monospace" font-size="13">$</text>
+  <text x="884" y="204" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">npx create-launchframe my-saas</text>
+  <text x="868" y="240" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   Template        dashboard</text>
+  <text x="868" y="264" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   Database        pg</text>
+  <text x="868" y="288" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   Billing         stripe</text>
+  <text x="868" y="312" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   Email           resend</text>
+  <text x="868" y="336" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   Deploy          docker</text>
+  <text x="868" y="360" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">   AI tools        cursor, claude</text>
+  <text x="868" y="396" fill="#34d399" font-family="ui-monospace, monospace" font-size="13">✓ Scaffolding project from dashboard template...</text>
+  <text x="868" y="420" fill="#34d399" font-family="ui-monospace, monospace" font-size="13">✓ Applying modules: auth, billing, email, db-pg</text>
+  <text x="868" y="444" fill="#34d399" font-family="ui-monospace, monospace" font-size="13">✓ Installing dependencies...</text>
+  <text x="868" y="480" fill="#34d399" font-family="ui-monospace, monospace" font-size="13" font-weight="700">Done in 4.2s</text>
+  <text x="868" y="510" fill="#34d399" font-family="ui-monospace, monospace" font-size="13">$</text>
+  <rect x="880" y="498" width="8" height="16" fill="#34d399" opacity="0.8"/>
+
+  <!-- Section: Everything you need -->
+  <text x="800" y="596" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="28" font-weight="800" letter-spacing="-1" text-anchor="middle">Everything you need</text>
+  <text x="800" y="628" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="16" text-anchor="middle">Production-grade modules that work together. Pick the ones you need, skip the rest.</text>
+
+  <!-- Feature cards row 1 -->
+  <rect x="68" y="660" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="96" y="696" fill="#F0EEF5" font-size="22">🔐</text>
+  <text x="96" y="722" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Authentication</text>
+  <text x="96" y="746" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Better Auth with email/password, GitHub OAuth, sessions.</text>
+
+  <rect x="440" y="660" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="468" y="696" fill="#F0EEF5" font-size="22">💳</text>
+  <text x="468" y="722" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Billing</text>
+  <text x="468" y="746" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Stripe or Polar checkout, portal, and subscription management.</text>
+
+  <rect x="812" y="660" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="840" y="696" fill="#F0EEF5" font-size="22">✉️</text>
+  <text x="840" y="722" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Email</text>
+  <text x="840" y="746" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Resend integration with transactional templates.</text>
+
+  <rect x="1184" y="660" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1212" y="696" fill="#F0EEF5" font-size="22">🗄️</text>
+  <text x="1212" y="722" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Database</text>
+  <text x="1212" y="746" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Drizzle ORM with PostgreSQL. Type-safe schemas.</text>
+
+  <!-- Feature cards row 2 -->
+  <rect x="68" y="790" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="96" y="826" fill="#F0EEF5" font-size="22">🧪</text>
+  <text x="96" y="852" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Testing</text>
+  <text x="96" y="876" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Vitest for unit, Playwright for E2E. Pre-configured.</text>
+
+  <rect x="440" y="790" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="468" y="826" fill="#F0EEF5" font-size="22">🤖</text>
+  <text x="468" y="852" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">AI-First DX</text>
+  <text x="468" y="876" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">AGENTS.md, ARCHITECTURE.md, llms.txt for AI agents.</text>
+
+  <rect x="812" y="790" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="840" y="826" fill="#F0EEF5" font-size="22">🚀</text>
+  <text x="840" y="852" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Deploy</text>
+  <text x="840" y="876" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Docker multi-stage builds, GitHub Actions CI/CD.</text>
+
+  <rect x="1184" y="790" width="352" height="112" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1212" y="826" fill="#F0EEF5" font-size="22">🧩</text>
+  <text x="1212" y="852" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Modular</text>
+  <text x="1212" y="876" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Pick what you need. Every module is independent.</text>
+
+  <defs>
+    <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="logoGrad" x1="68" y1="18" x2="92" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+</svg>

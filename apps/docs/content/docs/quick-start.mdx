@@ -1,0 +1,105 @@
+---
+title: Quick Start
+description: From zero to running app in 5 minutes.
+---
+
+## 1. Generate your project
+
+```bash
+npx create-skit my-saas
+```
+
+Follow the interactive prompts to pick your template, database driver, billing provider, and more.
+
+## 2. Configure environment
+
+```bash
+cd my-saas
+cp .env.example .env.local
+```
+
+Open `.env.local` and fill in:
+
+```ini
+# Database
+DATABASE_URL=postgresql://user:pass@localhost:5432/my_saas
+
+# Auth
+BETTER_AUTH_SECRET=your-random-secret-here
+BETTER_AUTH_URL=http://localhost:3000
+
+# Billing (if using Stripe)
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_PRICE_ID=price_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Email (if using Resend)
+RESEND_API_KEY=re_...
+EMAIL_FROM=onboarding@yourdomain.com
+```
+
+## 3. Set up the database
+
+```bash
+pnpm db:push    # push schema to your database
+pnpm db:seed    # optional: seed demo data
+```
+
+## 4. Start developing
+
+```bash
+pnpm dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000). You should see the landing page. Sign up to create your first account.
+
+## 5. Available scripts
+
+| Script | Description |
+|---|---|
+| `pnpm dev` | Start dev server (Turbopack) |
+| `pnpm build` | Production build |
+| `pnpm start` | Start production server |
+| `pnpm lint` | Lint with ESLint |
+| `pnpm lint:fix` | Fix lint errors |
+| `pnpm typecheck` | TypeScript type checking |
+| `pnpm test` | Run Vitest unit tests |
+| `pnpm test:e2e` | Run Playwright E2E tests |
+| `pnpm db:push` | Push Drizzle schema to database |
+| `pnpm db:migrate` | Run Drizzle migrations |
+| `pnpm db:seed` | Seed demo data |
+| `pnpm db:studio` | Open Drizzle Studio |
+
+## Project structure
+
+```
+my-saas/
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── page.tsx        # Landing / marketing page
+│   │   ├── dashboard/      # Protected dashboard
+│   │   ├── settings/       # Account settings (dashboard template)
+│   │   ├── billing/        # Billing management
+│   │   ├── email/          # Email demo
+│   │   ├── sign-in/        # Authentication
+│   │   └── sign-up/
+│   ├── components/
+│   │   └── auth/           # Auth form component
+│   ├── lib/
+│   │   ├── auth.ts         # Better Auth setup
+│   │   ├── auth-client.ts  # Client-side auth
+│   │   ├── auth-session.ts # Session helper
+│   │   ├── env.ts          # Environment validation
+│   │   ├── billing/        # Billing provider abstraction
+│   │   └── email/          # Email client + templates
+│   └── db/
+│       ├── index.ts        # Drizzle client
+│       ├── schema/         # Drizzle schema (auth, projects)
+│       └── seeds/          # Seed script
+├── drizzle.config.ts       # Drizzle configuration
+├── .env.example            # Env template
+├── AGENTS.md               # AI agent rules
+├── ARCHITECTURE.md          # Project architecture
+└── skit.json        # Generation manifest
+```

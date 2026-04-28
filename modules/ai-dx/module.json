@@ -1,0 +1,14 @@
+{
+  "name": "ai-dx",
+  "kind": "developer-experience",
+  "description": "Shared AI agent baseline: AGENTS.md and ARCHITECTURE.md for all tools.",
+  "dependsOn": ["quality-baseline"],
+  "conflictsWith": [],
+  "replaces": [],
+  "template": {
+    "copyFiles": [
+      "AGENTS.md",
+      "ARCHITECTURE.md"
+    ]
+  }
+}

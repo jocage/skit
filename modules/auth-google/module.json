@@ -1,0 +1,20 @@
+{
+  "name": "auth-google",
+  "kind": "auth",
+  "description": "Google OAuth provider for Better Auth.",
+  "dependsOn": ["auth-core"],
+  "conflictsWith": [],
+  "replaces": [],
+  "template": {
+    "tokenReplacements": {
+      "__AUTH_PROVIDER_ENV_EXAMPLE__": "GOOGLE_CLIENT_ID=google_oauth_client_id\nGOOGLE_CLIENT_SECRET=google_oauth_client_secret",
+      "__AUTH_PROVIDER_ENV_SCHEMA__": "  GOOGLE_CLIENT_ID: z.string().min(1).optional(),\n  GOOGLE_CLIENT_SECRET: z.string().min(1).optional(),",
+      "__AUTH_PROVIDER_ENV_VALUES__": "    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,\n    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,",
+      "__AUTH_SOCIAL_PROVIDERS_BLOCK__": ",\n  socialProviders: {\n    google: {\n      clientId: env.GOOGLE_CLIENT_ID ?? \"\",\n      clientSecret: env.GOOGLE_CLIENT_SECRET ?? \"\"\n    }\n  }",
+      "__AUTH_SOCIAL_BUTTON_HANDLER__": "\n  async function handleGoogleSignIn() {\n    setIsPending(true);\n    setError(null);\n\n    try {\n      const result = await authClient.signIn.social({\n        provider: \"google\",\n        callbackURL: \"/dashboard\"\n      });\n\n      if (result.error) {\n        setError(result.error.message ?? \"Google sign-in failed.\");\n      }\n    } catch {\n      setError(\"Google sign-in failed.\");\n    } finally {\n      setIsPending(false);\n    }\n  }\n",
+      "__AUTH_SOCIAL_BUTTON__": "\n      <div className=\"auth-separator\" aria-hidden=\"true\">\n        <span>or continue with</span>\n      </div>\n\n      <button\n        type=\"button\"\n        className=\"auth-social-button\"\n        onClick={() => {\n          void handleGoogleSignIn();\n        }}\n        disabled={isPending}\n      >\n        {isPending ? \"Working...\" : \"Continue with Google\"}\n      </button>",
+      "__AUTH_SOCIAL_TEST_ASSERTION__": "\n    expect(screen.getByRole(\"button\", { name: /continue with google/i })).toBeTruthy();",
+      "__AUTH_LLMS_EXTRA__": ", Google OAuth"
+    }
+  }
+}

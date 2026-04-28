@@ -1,0 +1,45 @@
+{
+  "name": "create-skit",
+  "version": "0.1.1",
+  "description": "Opinionated SaaS starter CLI for Next.js 16.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-skit": "./bin/create-skit.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "modules",
+    "presets",
+    "templates",
+    "README.md"
+  ],
+  "keywords": [
+    "nextjs",
+    "starter",
+    "saas",
+    "cli",
+    "scaffold"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jocage/skit.git",
+    "directory": "apps/cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/jocage/skit",
+  "bugs": {
+    "url": "https://github.com/jocage/skit/issues"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepack": "node ../../scripts/sync-cli-package-assets.mjs"
+  },
+  "devDependencies": {
+    "vitest": "4.1.5"
+  }
+}

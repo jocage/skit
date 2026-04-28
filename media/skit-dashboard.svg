@@ -1,0 +1,178 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="980" fill="#050505"/>
+  <circle cx="1400" cy="80" r="300" fill="url(#dorb1)" opacity="0.2"/>
+  <circle cx="100" cy="900" r="260" fill="url(#dorb2)" opacity="0.15"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="272" height="980" fill="#0a0a0a"/>
+  <rect x="271" y="0" width="1" height="980" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Sidebar: logo -->
+  <rect x="24" y="20" width="20" height="20" rx="4" stroke="url(#sideLogoGrad)" stroke-width="1.5" fill="none"/>
+  <path d="M31 26l2.5 2.5-2.5 2.5" stroke="url(#sideLogoGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="36" y1="33" x2="39" y2="33" stroke="url(#sideLogoGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="50" y="36" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="-0.3">Launch</text>
+  <text x="110" y="36" font-family="system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="-0.3" fill="url(#sideLogoGrad)">frame</text>
+
+  <!-- Sidebar: section -->
+  <text x="24" y="82" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">Control room</text>
+  <text x="24" y="106" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Product shell with auth, billing,</text>
+  <text x="24" y="124" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">email, and deployment paths.</text>
+
+  <!-- Workspace pill -->
+  <rect x="24" y="150" width="180" height="30" rx="15" fill="rgba(52,211,153,0.1)"/>
+  <circle cx="42" cy="165" r="4" fill="#34d399"/>
+  <text x="52" y="170" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Demo Workspace</text>
+
+  <!-- Nav items -->
+  <rect x="12" y="206" width="248" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="36" y="231" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Overview</text>
+  <text x="224" y="231" fill="#52525b" font-family="ui-monospace, monospace" font-size="12">01</text>
+
+  <text x="36" y="277" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">Billing</text>
+  <text x="224" y="277" fill="#52525b" font-family="ui-monospace, monospace" font-size="12">02</text>
+
+  <text x="36" y="317" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">Email</text>
+  <text x="224" y="317" fill="#52525b" font-family="ui-monospace, monospace" font-size="12">03</text>
+
+  <text x="36" y="357" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">Settings</text>
+  <text x="224" y="357" fill="#52525b" font-family="ui-monospace, monospace" font-size="12">04</text>
+
+  <!-- Sidebar: note -->
+  <rect x="12" y="400" width="248" height="92" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="28" y="428" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Starter principle</text>
+  <text x="28" y="450" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Keep the generated app sharp,</text>
+  <text x="28" y="468" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">predictable, and easy to extend.</text>
+
+  <!-- Sidebar: sign-in -->
+  <rect x="12" y="920" width="248" height="40" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="62" y="945" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13" font-weight="500">Sign in for the full app</text>
+
+  <!-- Content area -->
+
+  <!-- Hero panel -->
+  <rect x="296" y="24" width="780" height="198" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="324" y="60" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">DASHBOARD STARTER</text>
+  <text x="324" y="104" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1.5">Ship the first real screen</text>
+  <text x="324" y="144" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1.5">on day zero.</text>
+  <text x="324" y="180" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="14">Modular SaaS app with auth, billing, email, and database boundaries mapped out.</text>
+  <rect x="324" y="196" width="108" height="30" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="343" y="215" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12" font-weight="500">Open billing</text>
+
+  <!-- Insight panel -->
+  <rect x="1092" y="24" width="484" height="198" rx="16" fill="rgba(52,211,153,0.03)" stroke="rgba(52,211,153,0.1)"/>
+  <text x="1120" y="60" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">WHY IT MATTERS</text>
+  <text x="1120" y="92" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Clean foundations beat feature theater.</text>
+  <text x="1120" y="126" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Composable modules</text>
+  <text x="1120" y="146" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">DB, billing, deploy resolved intentionally.</text>
+  <text x="1120" y="176" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="700">AI-first repo shape</text>
+  <text x="1120" y="196" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Thin routes, clear boundaries, agent-ready.</text>
+
+  <!-- Stat cards -->
+  <rect x="296" y="240" width="290" height="112" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="324" y="270" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">MRR</text>
+  <text x="324" y="314" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1">$12.4k</text>
+  <text x="324" y="340" fill="#34d399" font-family="ui-monospace, monospace" font-size="12" font-weight="700">+8.2%</text>
+
+  <rect x="600" y="240" width="290" height="112" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="628" y="270" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Trials</text>
+  <text x="628" y="314" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1">184</text>
+  <text x="628" y="340" fill="#34d399" font-family="ui-monospace, monospace" font-size="12" font-weight="700">+14.9%</text>
+
+  <rect x="904" y="240" width="290" height="112" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="932" y="270" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Activation</text>
+  <text x="932" y="314" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1">62%</text>
+  <text x="932" y="340" fill="#34d399" font-family="ui-monospace, monospace" font-size="12" font-weight="700">+5.1%</text>
+
+  <rect x="1208" y="240" width="368" height="112" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1236" y="270" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Churn</text>
+  <text x="1236" y="314" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="34" font-weight="800" letter-spacing="-1">2.1%</text>
+  <text x="1236" y="340" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="12" font-weight="700">Watchlist</text>
+
+  <!-- Activity panel -->
+  <rect x="296" y="370" width="820" height="270" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="324" y="406" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">RECENT ACTIVITY</text>
+  <text x="324" y="436" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="17" font-weight="700">What this starter already gives you</text>
+
+  <!-- Activity items -->
+  <rect x="324" y="458" width="760" height="1" fill="rgba(255,255,255,0.06)"/>
+  <rect x="324" y="474" width="34" height="34" rx="8" fill="rgba(52,211,153,0.1)"/>
+  <text x="333" y="496" fill="#34d399" font-family="ui-monospace, monospace" font-size="10" font-weight="800">BL</text>
+  <text x="374" y="490" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Polar and Stripe adapters are already wired</text>
+  <text x="374" y="508" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Swap providers without rewriting your app surface.</text>
+  <text x="1044" y="496" fill="#52525b" font-family="ui-monospace, monospace" font-size="11">Now</text>
+
+  <rect x="324" y="524" width="760" height="1" fill="rgba(255,255,255,0.06)"/>
+  <rect x="324" y="540" width="34" height="34" rx="8" fill="rgba(52,211,153,0.1)"/>
+  <text x="333" y="562" fill="#34d399" font-family="ui-monospace, monospace" font-size="10" font-weight="800">AU</text>
+  <text x="374" y="556" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Better Auth baseline is live</text>
+  <text x="374" y="574" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Email auth flows, protected routes, and session helpers are in place.</text>
+  <text x="1044" y="560" fill="#52525b" font-family="ui-monospace, monospace" font-size="11">Auth</text>
+
+  <rect x="324" y="590" width="760" height="1" fill="rgba(255,255,255,0.06)"/>
+  <rect x="324" y="606" width="34" height="34" rx="8" fill="rgba(52,211,153,0.1)"/>
+  <text x="335" y="628" fill="#34d399" font-family="ui-monospace, monospace" font-size="10" font-weight="800">TS</text>
+  <text x="374" y="622" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Vitest + Playwright gates are included</text>
+  <text x="374" y="640" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">You start with verification, not just templates and good intentions.</text>
+  <text x="1044" y="626" fill="#52525b" font-family="ui-monospace, monospace" font-size="11">QA</text>
+
+  <!-- Right mini cards -->
+  <rect x="1132" y="370" width="444" height="82" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1160" y="400" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">AUTH</text>
+  <text x="1160" y="424" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Ready when you need real accounts</text>
+  <text x="1160" y="444" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Demo dashboard no longer blocks first-run exploration.</text>
+
+  <rect x="1132" y="466" width="444" height="82" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1160" y="496" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">DEPLOY</text>
+  <text x="1160" y="520" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Vercel or Docker</text>
+  <text x="1160" y="540" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Deploy target stays an explicit decision, not hidden setup debt.</text>
+
+  <rect x="1132" y="562" width="444" height="82" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1160" y="592" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">BILLING</text>
+  <text x="1160" y="616" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Provider abstraction first</text>
+  <text x="1160" y="636" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">Stripe and Polar behind one app-facing contract.</text>
+
+  <!-- Pipeline panel -->
+  <rect x="296" y="658" width="1280" height="160" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="324" y="694" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">GROWTH PIPELINE</text>
+  <text x="324" y="726" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Demo data that feels like a product, not a lorem ipsum card set.</text>
+  <rect x="1406" y="680" width="120" height="28" rx="14" fill="rgba(52,211,153,0.1)"/>
+  <circle cx="1422" cy="694" r="4" fill="#34d399"/>
+  <text x="1432" y="699" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Demo mode</text>
+
+  <!-- Pipeline stats -->
+  <rect x="324" y="748" width="396" height="54" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="348" y="772" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Lead capture</text>
+  <text x="348" y="794" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="20" font-weight="800">1,284</text>
+  <text x="520" y="794" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">+11% week over week</text>
+
+  <rect x="734" y="748" width="396" height="54" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="758" y="772" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Qualified trials</text>
+  <text x="758" y="794" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="20" font-weight="800">312</text>
+  <text x="870" y="794" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">42 from referral channels</text>
+
+  <rect x="1144" y="748" width="396" height="54" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1168" y="772" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="13">Activated workspaces</text>
+  <text x="1168" y="794" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="20" font-weight="800">116</text>
+  <text x="1260" y="794" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="12">62% activation rate</text>
+
+  <!-- Footer bar -->
+  <rect x="296" y="836" width="1280" height="120" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="324" y="874" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="1.5">READY TO BUILD</text>
+  <text x="324" y="920" fill="#F0EEF5" font-family="system-ui, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.5">Use the marketing page now. Turn on real flows as the backend catches up.</text>
+
+  <defs>
+    <radialGradient id="dorb1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dorb2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sideLogoGrad" x1="24" y1="20" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+</svg>

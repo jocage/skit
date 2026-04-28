@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+dist
+.turbo
+.idea
+.vscode
+coverage
+playwright-report
+test-results
+.tmp
+.next
+.source
+*.tgz
+.pnpm-store
+tmp-generated-*
+.internal

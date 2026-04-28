@@ -1,0 +1,292 @@
+---
+title: Adding a Module
+description: Step-by-step guide to creating a new Skit module from scratch.
+---
+
+A module is a self-contained unit that adds one capability to a generated project. It declares its metadata, dependencies, and how it modifies the base template — either by contributing new files or by filling in token placeholders.
+
+This guide walks through creating a real module end-to-end.
+
+---
+
+## Module anatomy
+
+```
+modules/your-module/
+├── module.json        # Required — metadata and operations
+└── files/             # Optional — files to copy into the generated project
+    └── src/
+        └── lib/
+            └── example.ts
+```
+
+### module.json fields
+
+```json
+{
+  "name": "your-module",
+  "kind": "billing | auth | database | email | deploy | developer-experience | ui",
+  "description": "One sentence describing what this module does.",
+  "dependsOn": ["auth-core"],
+  "conflictsWith": ["other-module"],
+  "replaces": [],
+  "template": {
+    "tokenReplacements": {
+      "__SOME_TOKEN__": "value that replaces the token in all files"
+    }
+  }
+}
+```
+
+| Field | Required | Description |
+|---|---|---|
+| `name` | ✓ | Must match the directory name |
+| `kind` | ✓ | Category used for grouping and validation |
+| `description` | ✓ | Shown in CLI output and docs |
+| `dependsOn` | | Modules that must be resolved before this one |
+| `conflictsWith` | | Modules that cannot coexist with this one |
+| `replaces` | | Modules this one supersedes (they are removed from the graph) |
+| `template.tokenReplacements` | | Key→value replacements applied to all generated files |
+
+---
+
+## Step 1 — Create the module directory
+
+```bash
+mkdir -p modules/your-module
+```
+
+If the module contributes new files, create the `files/` subdirectory mirroring the output project structure:
+
+```bash
+mkdir -p modules/your-module/files/src/lib
+```
+
+---
+
+## Step 2 — Write module.json
+
+Start from the minimal shape:
+
+```json
+{
+  "name": "your-module",
+  "kind": "developer-experience",
+  "description": "Does something useful.",
+  "dependsOn": [],
+  "conflictsWith": [],
+  "replaces": [],
+  "template": {
+    "tokenReplacements": {}
+  }
+}
+```
+
+### Declaring dependencies
+
+If your module requires another module to be present, list it in `dependsOn`. The resolver will ensure it's included automatically:
+
+```json
+"dependsOn": ["auth-core"]
+```
+
+### Declaring conflicts
+
+If your module is mutually exclusive with another (e.g., two database drivers):
+
+```json
+"conflictsWith": ["db-pg"]
+```
+
+The CLI will error if both are selected.
+
+---
+
+## Step 3 — Understand the token system
+
+Tokens are `__UPPER_SNAKE_CASE__` placeholders that exist in the base template files. Your module supplies the values that replace them at generation time.
+
+### How tokens work
+
+1. The base template (`templates/base-web/`) contains placeholders:
+
+```ts
+// src/lib/auth.ts
+export const auth = betterAuth({
+  emailAndPassword: { enabled: true }__AUTH_SOCIAL_PROVIDERS_BLOCK__
+});
+```
+
+2. When no social auth module is active, the preset provides an empty replacement:
+
+```json
+"__AUTH_SOCIAL_PROVIDERS_BLOCK__": ""
+```
+
+3. When `auth-github` is active, it provides a non-empty replacement:
+
+```json
+"__AUTH_SOCIAL_PROVIDERS_BLOCK__": ",\n  socialProviders: {\n    github: {\n      clientId: env.GITHUB_CLIENT_ID ?? \"\",\n      clientSecret: env.GITHUB_CLIENT_SECRET ?? \"\"\n    }\n  }"
+```
+
+The token is replaced in every text file in the generated project simultaneously.
+
+### Finding existing tokens
+
+Search the base template for `__` to see all available placeholders:
+
+```bash
+grep -r "__" templates/base-web/src --include="*.ts" --include="*.tsx" -l
+```
+
+### Adding a new token
+
+If your module needs to inject content that no existing token covers, you can add a new placeholder to the base template file and supply the replacement in your module.
+
+Keep token names scoped to their purpose:
+- `__AUTH_*` — authentication
+- `__BILLING_*` — billing provider
+- `__EMAIL_*` — email provider
+- `__DEPLOY_*` — deploy configuration
+
+---
+
+## Step 4 — Add files (if needed)
+
+If your module contributes entirely new files (not modifications of existing ones), place them under `modules/your-module/files/` with the same path they should have in the output project:
+
+```
+modules/your-module/files/src/lib/your-feature/index.ts
+```
+
+At generation time, these files are copied into the project after the base template is assembled. Tokens in these files are also replaced.
+
+Files in `files/` can themselves contain `__TOKEN__` placeholders — they follow the same replacement pass.
+
+---
+
+## Step 5 — Register in the module resolver
+
+Open `apps/cli/lib/module-resolver.mjs` and add your module to the appropriate mapping function.
+
+For a new auth provider (`auth-google`):
+
+```js
+function mapAuthModules(authMode) {
+  if (authMode === "email-password+google") {
+    return ["auth-google"];
+  }
+  // ...
+}
+```
+
+For a module that's always included in a preset, add it directly to `presets/<name>.json`:
+
+```json
+{
+  "modules": ["quality-baseline", "testing-baseline", "your-module"]
+}
+```
+
+---
+
+## Step 6 — Add CLI options (if user-selectable)
+
+If your module corresponds to a user choice, add it to the options array in `apps/cli/bin/create-skit.mjs`:
+
+```js
+const AUTH_OPTIONS = [
+  // ...existing options...
+  {
+    value: "email-password+google",
+    label: "Email + Password + Google",
+    description: "Add Google OAuth alongside email/password."
+  }
+];
+```
+
+Then handle it in the resolver (Step 5).
+
+---
+
+## Step 7 — Update preset token defaults
+
+Every preset must supply a value for every token that exists in the base template. If you added a new token, add a default (usually empty string) to all presets that don't use your module:
+
+```json
+// presets/blank.json
+{
+  "tokenReplacements": {
+    "__YOUR_NEW_TOKEN__": ""
+  }
+}
+```
+
+---
+
+## Step 8 — Run smoke tests
+
+```bash
+pnpm smoke:verify:blank
+pnpm smoke:verify:dashboard
+pnpm smoke:verify:postgresjs
+```
+
+If your module is additive (doesn't change existing profiles), the existing smoke tests are sufficient. If you added a new CLI option, consider adding a smoke profile for it in `scripts/`.
+
+---
+
+## Step 9 — Sync CLI assets
+
+```bash
+pnpm cli:sync-assets
+```
+
+This copies your new module from `modules/` into `apps/cli/modules/` so the packaged CLI includes it.
+
+---
+
+## Worked example — auth-google
+
+Here's the complete `module.json` for the `auth-google` module added to Skit:
+
+```json
+{
+  "name": "auth-google",
+  "kind": "auth",
+  "description": "Google OAuth provider for Better Auth.",
+  "dependsOn": ["auth-core"],
+  "conflictsWith": [],
+  "replaces": [],
+  "template": {
+    "tokenReplacements": {
+      "__AUTH_PROVIDER_ENV_EXAMPLE__": "GOOGLE_CLIENT_ID=...\nGOOGLE_CLIENT_SECRET=...",
+      "__AUTH_PROVIDER_ENV_SCHEMA__": "  GOOGLE_CLIENT_ID: z.string().min(1).optional(),\n  GOOGLE_CLIENT_SECRET: z.string().min(1).optional(),",
+      "__AUTH_PROVIDER_ENV_VALUES__": "    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,\n    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,",
+      "__AUTH_SOCIAL_PROVIDERS_BLOCK__": ",\n  socialProviders: {\n    google: {\n      clientId: env.GOOGLE_CLIENT_ID ?? \"\",\n      clientSecret: env.GOOGLE_CLIENT_SECRET ?? \"\"\n    }\n  }",
+      "__AUTH_SOCIAL_BUTTON_HANDLER__": "\n  async function handleGoogleSignIn() { ... }\n",
+      "__AUTH_SOCIAL_BUTTON__": "\n      <button onClick={() => void handleGoogleSignIn()}>Continue with Google</button>",
+      "__AUTH_LLMS_EXTRA__": ", Google OAuth"
+    }
+  }
+}
+```
+
+The module:
+- Depends on `auth-core` (Better Auth baseline must be present)
+- Has no conflicts (can coexist with `auth-github`)
+- Injects env vars, the social provider config block, and the sign-in button into existing template files via tokens
+- Has no `files/` directory because it only modifies existing files
+
+---
+
+## Checklist
+
+- [ ] `modules/<name>/module.json` created with all required fields
+- [ ] `files/` directory added if the module contributes new files
+- [ ] Token replacements cover all placeholders the module touches
+- [ ] All presets have a default value for any new tokens
+- [ ] Module registered in `module-resolver.mjs`
+- [ ] CLI options updated if user-selectable
+- [ ] `pnpm smoke:verify:*` passes for all existing profiles
+- [ ] `pnpm cli:sync-assets` run

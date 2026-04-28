@@ -1,0 +1,145 @@
+---
+title: Contributing
+description: How to contribute to Skit — opening issues, submitting PRs, and adding new modules.
+---
+
+## Ground rules
+
+1. **Keep it opinionated** — don't add options for everything. A new flag must justify itself.
+2. **Prefer incremental module extraction** over rewrites. New capability → new module.
+3. **Never merge changes that break smoke verification.** All generated profiles must pass lint, typecheck, test, and build.
+
+---
+
+## Development setup
+
+```bash
+git clone https://github.com/jocage/skit.git
+cd skit
+pnpm install
+```
+
+The repo is a pnpm workspace. The main packages are `apps/cli` (the generator) and `apps/docs` (this site).
+
+```bash
+pnpm dev          # start the docs site on localhost:3000
+pnpm cli:dev      # watch-rebuild the CLI during development
+```
+
+---
+
+## Opening an issue
+
+Before opening a PR, open an issue first unless the fix is trivially obvious (typo, broken link).
+
+A good issue includes:
+
+- **What** — what behavior you observed vs. what you expected
+- **Repro** — the exact `create-skit` command or the relevant generated file
+- **Why** — why you think this is a bug or worth changing
+
+For feature requests, explain the use case, not just the desired API.
+
+---
+
+## Submitting a pull request
+
+### 1. Branch naming
+
+```
+fix/short-description
+feat/short-description
+docs/short-description
+chore/short-description
+```
+
+### 2. Make your changes
+
+Keep changes focused. A PR that fixes one thing is easier to review than one that fixes five. If you find unrelated issues, open separate PRs.
+
+Relevant directories by change type:
+
+| What you're changing | Where |
+|---|---|
+| Generated file content | `templates/base-web/src/` or `templates/dashboard/src/` |
+| A specific module | `modules/<name>/` |
+| Which modules a preset includes | `presets/<name>.json` |
+| CLI prompts or flags | `apps/cli/bin/create-skit.mjs` |
+| Module resolution logic | `apps/cli/lib/module-resolver.mjs` |
+| Docs content | `apps/docs/content/docs/` |
+
+### 3. Run smoke tests
+
+Before pushing, verify all profiles pass end-to-end:
+
+```bash
+pnpm smoke:verify:blank
+pnpm smoke:verify:dashboard
+pnpm smoke:verify:postgresjs
+```
+
+Each command generates a full project, installs dependencies, then runs:
+
+```
+lint → typecheck → test → build
+```
+
+If any step fails, the PR will not be merged.
+
+### 4. Sync CLI assets
+
+If you changed anything under `templates/`, `modules/`, or `presets/`, sync the assets into `apps/cli/`:
+
+```bash
+pnpm cli:sync-assets
+```
+
+This copies the source files so the CLI tarball reflects your changes.
+
+### 5. PR description
+
+A useful PR description covers:
+
+- **What changed** — a short summary of the diff
+- **Why** — the motivation or linked issue
+- **Smoke result** — confirm which smoke profiles you ran and that they passed
+- **Token changes** (if any) — list new or modified `__TOKEN_NAME__` placeholders
+
+---
+
+## Adding a new module
+
+See [Adding a Module](/docs/modules/adding-a-module) for the full walkthrough.
+
+The short version:
+
+1. Create `modules/<name>/module.json`
+2. Add files to `modules/<name>/files/` (if the module contributes new files)
+3. Add token replacements to `module.json` if the module modifies existing files
+4. Register the module in `apps/cli/lib/module-resolver.mjs`
+5. Add any new CLI options to `apps/cli/bin/create-skit.mjs`
+6. Add the module to relevant presets if it should be auto-included
+7. Run smoke tests
+8. Sync CLI assets
+
+---
+
+## Release process
+
+See the [Release Guide](https://github.com/jocage/skit/blob/main/doc/RELEASE.md) for the full checklist.
+
+### Version policy
+
+| Bump | When |
+|---|---|
+| `patch` | Packaging fixes, docs, non-breaking template fixes |
+| `minor` | New scaffold options, new modules, additive generated files |
+| `major` | Breaking changes to generated output, removed CLI options |
+
+---
+
+## Internal docs
+
+- [Specification](https://github.com/jocage/skit/blob/main/doc/SPEC.md) — product requirements and design decisions
+- [Module System](https://github.com/jocage/skit/blob/main/doc/MODULE_SYSTEM.md) — full module system spec
+- [Release Guide](https://github.com/jocage/skit/blob/main/doc/RELEASE.md) — publishing checklist
